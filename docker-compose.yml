@@ -1,0 +1,10 @@
+version: '3.2'
+
+services:
+  rust:
+    image: rust:1.48-slim
+    command: tail -f /dev/null
+    volumes:
+      - type: bind
+        source: .
+        target: /scripts

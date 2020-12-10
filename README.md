@@ -1,6 +1,8 @@
 # Rust Studies
 
-Another series of studies, this time on ***[Rust][1]*** lightning fast programming language
+Another series of studies, this time on ***[Rust][1]*** lightning fast programming language.
+
+Including Rust coding standards and best pratices on [GOOD_PRATICES.md][2].
 
 ## Installation
 
@@ -14,3 +16,4 @@ Another series of studies, this time on ***[Rust][1]*** lightning fast programmi
 
 
 [1]: https://www.rust-lang.org/
+[2]: https://github.com/gustapinto/rust-studies/blob/main/GOOD_PRATICES.md

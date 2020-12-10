@@ -1,19 +1,19 @@
 /// # Control Flows
 ///
-/// ## Sumary (Content......Line)
+/// ## Sumary
 ///
-/// If, Else...................13
-/// Loop.......................37
-/// While......................74
-/// For........................84
+/// If, Else..................................................................13
+/// Loop......................................................................37
+/// While.....................................................................74
+/// For.......................................................................84
 
 fn main() {
     let number: f32 = get_user_input_as_float();
 
     /* If, Else
      *
-     * If and Else acts as truly conditional operators, they can also be used with 'let' to
-     * build a ternary operator on variable assignment.
+     * If and Else acts as truly conditional operators, they can also be used
+     * with 'let' to build a ternary operator on variable assignment.
     */
     if number < 0.0 { // Traditional If/Else
         println!("{} is negative", number);
@@ -25,7 +25,7 @@ fn main() {
 
     let new_number = // Ternary
         if number < 0.0 {
-            10 // OBS: if you put a semicolon on the if/else "returns" everything will burn.
+            10
         } else {
             1
         };
@@ -36,8 +36,8 @@ fn main() {
 
     /* Loop
      *
-     * The loop statement is use to represent infinite loops, they can be nested using
-     * annotations on loop declaration.
+     * The loop statement is use to represent infinite loops, they can be nested
+     * using annotations on loop declaration.
     */
     let mut loop_count: u32 = 0;
 
@@ -57,7 +57,7 @@ fn main() {
         }
 
         if loop_count == 4 {
-            break println!(""); // To return something from loop put it after a break
+            break println!(""); // To return something from loop put on a break
         }
     }
 
@@ -83,18 +83,20 @@ fn main() {
 
     /* For
      *
-     * The 'for' keyword is used to iterate over a Iterator, like a array or over a range
-     * notation (start..exclusive_end) or (start..=inclusive_end). While itering over Iterators
-     * the 'for' has multiple means to interact with the elements of the collection:
+     * The 'for' keyword is used to iterate over a Iterator, like a array or over
+     * a range notation (start..exclusive_end) or (start..=inclusive_end). While
+     * itering over Iterators the 'for' has multiple means to interact with the
+     * elements of the collection:
      *
-     * Iterator.iter()      -> This borrows each element of the collection over each iterarion,
-     *                          leaving the original collection untouched and available for
-     *                          reuse after the loop.
-     * Iterator.into_iter() -> This consumes the collection on each iteraration so the exact
-     *                          data is provided. So after the iteration the collection is no
-     *                          longer available for reuse.
-     * Iterator.iter_mut()  -> This mutably borrows each elements of the collection, allowing
-     *                          it to be modified.
+     * Iterator.iter()      -> This borrows each element of the collection over
+     *                          each iterarion, leaving the original collection
+     *                          untouched and available for reuse after the loop.
+     * Iterator.into_iter() -> This consumes the collection on each iteraration
+     *                          so the exact data is provided, after the
+     *                          iteration the collection is no longer available
+     *                          for reuse.
+     * Iterator.iter_mut()  -> This mutably borrows each collection elements,
+     *                          allowing it to be modified.
     */
     for _ in 1..5 { // Iterate over the 1-5 range, excluding the end
         println!(".");
@@ -106,19 +108,28 @@ fn main() {
 
     println!("");
 
-    let _array = vec!["All we hear is Radio Ga Ga", "Radio Goo Goo", "Radio Blah Blah"];
-    let mut _mut_array =  vec!["All we hear is Radio Ga Ga", "Radio Blah Blah", "Radio, what's new?", "end"];
+    let _array = vec![
+        "All we hear is Radio Ga Ga",
+        "Radio Goo Goo",
+        "Radio Blah Blah"
+    ];
+    let mut _mut_array =  vec![
+        "All we hear is Radio Ga Ga",
+        "Radio Blah Blah",
+        "Radio, what's new?",
+        "missing entry"
+    ];
 
     for lyric in _array.iter() { // Iterating using .iter()
         // Rust provides a pattern matching via the 'match' keyword:
-        match lyric { // Note that the match {} changes with each iteration method
+        match lyric { // Note that the match {} changes with each iteration type
             &"Radio Blah Blah" => println!("Radio Ga Ga"),
             _ => println!("{}", lyric),
         }
     }
 
-    for lyric in _array.into_iter() { // Iterating using .into_iter(), the Rust default
-        match lyric { // Note that the match {} changes with each iteration method
+    for lyric in _array.into_iter() { // Iterating using .into_iter()
+        match lyric {
             "Radio Blah Blah" => println!("Radio Ga Ga"),
             _ => println!("{}", lyric),
         }
@@ -128,7 +139,7 @@ fn main() {
 
     for lyric in _mut_array.iter_mut() {
         *lyric = match lyric {
-            &mut "end" => "Radio, someone still loves you", // Modify the mutable array entry
+            &mut "missing entry" => "Radio, someone still loves you",
             _ => continue,
         }
     }
@@ -142,7 +153,7 @@ fn get_user_input_as_float() -> f32 { // Setting to return a f32 float
      *
      * Rust make use of std::io libray to get input from terminal.
      *
-     * These librarys will be covered in another example.rs, so stay a while and listen.
+     * These librarys will be covered in another example.rs.
     */
     use std::io; // Rust std I/O library
 

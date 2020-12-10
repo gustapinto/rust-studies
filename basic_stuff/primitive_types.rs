@@ -1,6 +1,11 @@
 /// # Primitive Types
 ///
-/// Rust supports a series of data types, including:
+/// ## Sumary (Content......Line)
+///
+/// Boolean....................11
+/// Text.......................19
+/// Numbers....................33
+/// Data Structures............51
 
 fn main() {
     /* Boolean

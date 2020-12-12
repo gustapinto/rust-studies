@@ -3,8 +3,9 @@ version: '3.2'
 services:
   rust:
     image: rust:1.48-slim
-    command: tail -f /dev/null
+    tty: true
+    working_dir: /scripts/
     volumes:
-      - type: bind
-        source: .
-        target: /scripts
+      - ./:/scripts/
+    environment:
+      - USER=$USER

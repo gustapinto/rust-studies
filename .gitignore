@@ -11,3 +11,7 @@ Cargo.lock
 
 # Ignoring the binary files, because this is a decent repo
 basic_stuff/bin/
+
+# Ignore VS Code
+.devcontainer/
+.vscode/
